@@ -1,1 +1,31 @@
--e "__pycache__/\nvenv/\n.env\n*.log\n*.tmp\n*.DS_Store" 
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model files
+*.h5
+*.keras
+*.tflite
+
+# Streamlit secrets
+.streamlit/secrets.toml
