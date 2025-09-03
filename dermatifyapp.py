@@ -4,16 +4,19 @@ import numpy as np
 import cv2
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
-
+import gdown
+import os
 # ======== Konfigurasi halaman Streamlit ========
 st.set_page_config(layout="wide")
 
 # ======== Load model CNN ========
-@st.cache_resource
-def load_cnn_model():
-    return load_model("Model_Skenario 3_Adam_R80.h5")
+MODEL_PATH = "Model_Skenario 3_Adam_R80.h5"
+if not os.path.exists(MODEL_PATH):
+    url = "https://drive.google.com/file/d/1LNfd63ZkDOMOVTi_0AhvEe9-2RxFJxfl"  # ganti dengan ID Google Drive kamu
+    gdown.download(url, MODEL_PATH, quiet=False)
 
-model = load_cnn_model()
+model = load_model(MODEL_PATH, compile=False)
+
 
 # ======== Label dan Deskripsi Penyakit ========
 labels = ['cellulitis', 'chickenpox', 'impetigo','nail fungus', 'ringworm']
